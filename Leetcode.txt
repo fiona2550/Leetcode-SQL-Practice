@@ -1,0 +1,22 @@
+----------------------------------------------------------------------
+Is there any better layout? 
+
+select distinct page_id as recommended_page 
+from Likes
+where page_id not in (select page_id from Likes where user_id = 1)
+
+AND 
+
+user_id in (select user1_id from Friendship where user2_id = 1
+            union 
+            select user2_id from Friendship where user1_id = 1)
+
+-----------------------------------------------------------------------
+https://leetcode.com/problems/managers-with-at-least-5-direct-reports/submissions/
+why join is faster than in
+
+-----------------------------------------------------------------------
+1350 - Subquery is more efficient than Join. 
+
+
+
