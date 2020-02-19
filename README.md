@@ -21,6 +21,26 @@
 - (work): select B.Id from Weather a inner join Weather b on datediff(d,a.RecordDate, b.RecordDate) =1 where a.Temperature < b.Temperature
 
 
+**270**: All People Report to the Given Manager
+- Super Smart Solution: loop with function
+WITH all_reports AS
+(
+    SELECT employee_id, manager_id, employee_name
+    FROM Employees
+    WHERE employee_id = 1
+    
+    UNION ALL
+    
+    SELECT E.employee_id, E.manager_id, E.employee_name
+    FROM all_reports AS A
+    JOIN Employees AS E
+    ON E.manager_id = A.employee_id
+    WHERE E.employee_id != 1
+)
+SELECT employee_id FROM all_reports
+WHERE employee_name NOT LIKE 'Boss'
+and  employee_id <> 1;
+
 
 
 
