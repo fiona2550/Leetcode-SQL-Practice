@@ -11,7 +11,9 @@
 <br>1.select  top 1 num as num from my_numbers group by num having count(num) = 1 order by num desc </br>
 <br>2.select max(a.num) as num from (select num from my_numbers group by num having count(num) = 1) a; </br>
 
-
+**196**: Delete replcate records
+<br> 1(do not work): DELETE FROM Person WHERE Person.Id NOT IN (SELECT MIN(Id) FROM Person GROUP BY Email) </br>
+<br> 2(work): delete from Person where id not in (select A.id from (select min(id) as id from Person group by Email) as A); </br>
 
 
 
