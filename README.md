@@ -41,6 +41,8 @@ SELECT employee_id FROM all_reports
 WHERE employee_name NOT LIKE 'Boss'
 and  employee_id <> 1;
 
+**612**: No on with Cross Join. Or inner join on t1.column <> t2.column;
 
+**1341**: When use **Union** function, cannot union two complex query together directly but need to select columns you want from complex query first
 
 
