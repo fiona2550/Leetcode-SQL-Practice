@@ -45,4 +45,15 @@ and  employee_id <> 1;
 
 **1341**: When use **Union** function, cannot union two complex query together directly but need to select columns you want from complex query first
 
+Select distinct viewer_id as id from Views 
+group by viewer_id, view_date
+having count(distinct article_id) >1
+order by viewer_id
 
+
+with temp AS (Select distinct article_id, author_id, viewer_id, view_date from Views)
+
+select distinct viewer_id as id from temp
+group by viewer_id, view_date
+having count(*) >1
+order by viewer_id
