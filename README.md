@@ -57,3 +57,7 @@ select distinct viewer_id as id from temp
 group by viewer_id, view_date
 having count(*) >1
 order by viewer_id
+
+**Hankerrank**: Select median without need for each group 
+https://www.hackerrank.com/challenges/weather-observation-station-20/problem
+Select round(S.LAT_N,4)  from station S where (select count(Lat_N) from station where Lat_N < S.LAT_N ) = (select count(Lat_N) from station where Lat_N > S.LAT_N)
